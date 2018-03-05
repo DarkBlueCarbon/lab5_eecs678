@@ -33,6 +33,8 @@ void *inc_count(void *arg)
      */
     count = count + my_args->inc;
     loc = loc + my_args->inc;
+
+    __atomic_add_fetch(&count,ONE, __ATOMIC_RELAXED);
   }
   printf("Thread: %d finished. Counted: %d\n", my_args->tid, loc);
   free(my_args);

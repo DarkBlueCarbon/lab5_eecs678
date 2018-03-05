@@ -33,8 +33,8 @@ void *inc_count(void *arg)
      */
     pthread_mutex_lock(&count_mutex);
     count = count + my_args->inc;
-    pthread_mutex_unlock(&count_mutex);
     loc = loc + my_args->inc;
+    pthread_mutex_unlock(&count_mutex);
   }
   printf("Thread: %d finished. Counted: %d\n", my_args->tid, loc);
   free(my_args);
